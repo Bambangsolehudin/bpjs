@@ -144,12 +144,32 @@ export default {
           level : null,
           button_of : false
         },
+        {
+          name : 'Bootstrap',
+          level : null,
+          button_of : false
+        },
+        {
+          name : 'Laravel',
+          level : null,
+          button_of : false
+        },
+        {
+          name : 'React JS',
+          level : null,
+          button_of : false
+        },
+        {
+          name : 'Nuxt JS',
+          level : null,
+          button_of : false
+        },
       ],
       skillsUser : [
-        {
-          skill : 'Bootstrap',
-          level : 4,
-        }
+        // {
+        //   skill : 'Bootstrap',
+        //   level : 4,
+        // }
       ]
     }
   }

@@ -110,14 +110,14 @@ export default {
       content: "<h1>Some initial content</h1>",
       form_data: {},
       datas: [
-        {
-          school: "Universitas Gunadarma",
-          degree: "Pt Astra",
-          start_date: "Jan 2021",
-          end_date: "jul 2022",
-          city: "Jakarta",
-          desc : "Hai"
-        }
+        // {
+        //   school: "Universitas Gunadarma",
+        //   degree: "Pt Astra",
+        //   start_date: "Jan 2021",
+        //   end_date: "jul 2022",
+        //   city: "Jakarta",
+        //   desc : "Hai"
+        // }
       ],
     };
   }

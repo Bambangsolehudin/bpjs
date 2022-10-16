@@ -1,6 +1,8 @@
 <template>
   <div class="Home container">
-    
+    <div v-if="validationParent" class="alert alert-danger my-2" role="alert">
+      Terdapat data yang belum terisi, silahkan isi terlebih dahulu !
+    </div>
     <PersonalDetail @datas="detail" />
 
     <ProfesionalSummary @data="getDataPS" />
@@ -26,6 +28,8 @@ import ProfesionalSummary from "../src/components/ProfesionalSummary.vue"
 import EmployeHistory from "../src/components/EmployeHistory.vue"
 import Education from "../src/components/Education.vue"
 import Skills from '../src/components/Skills.vue'
+import $ from "jquery";
+
 
 export default {
   components: {
@@ -37,7 +41,7 @@ export default {
   },
   methods : {
     detail(e){
-      Object.assign(this.personalDetail, e);
+      this.personalDetail = e
       console.log('personal detail', this.personalDetail);
     },
     getDataPS(e){
@@ -57,17 +61,26 @@ export default {
       console.log('skills', this.skills);
     },
     saveAll(){
-      console.log("All Data", {personal_detail: this.personalDetail, prefesional_sumary: this.profesionalSummary, employe_history: this.EmployeHistory, education: this.Education, skills: this.skills, });
+      if(this.personalDetail == null || this.profesionalSummary == null || this.EmployeHistory == null || this.Education == null || this.skills == null){
+        $('html, body').animate({
+            scrollTop: 0
+        }, 1000); 
+        this.validationParent = true
+      }else{
+        this.validationParent = false
+        console.log("All Data", {personal_detail: this.personalDetail, prefesional_sumary: this.profesionalSummary, employe_history: this.EmployeHistory, education: this.Education, skills: this.skills, });
+      }
     },
   },
 
   data() {
     return {
-      personalDetail : {},
-      profesionalSummary:'',
-      EmployeHistory: '',
-      Education: '',
-      skills: '',
+      validationParent: false,
+      personalDetail : null,
+      profesionalSummary:null,
+      EmployeHistory: null,
+      Education: null,
+      skills: null,
 
     };
   }
