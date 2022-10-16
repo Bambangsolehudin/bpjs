@@ -12,7 +12,7 @@
           <div class="pt-4 px-4 d-flex justify-content-between">
             <h6>
               {{ data.school }}
-              <p class="text-muted mt-2">{{ data.start_date }} - {{ data.end_date }}</p>
+              <p class="text-muted mt-2">{{ moment(data.start_date).format('MMMM, YYYY')  }} - {{ moment(data.end_date).format('MMMM, YYYY') }}</p>
             </h6>
             <a href="" class="text-danger" @click.prevent="deleteData(index)">X</a>
           </div>
@@ -44,8 +44,8 @@
               <div class="form-group">
                 <label for="start_date">Start and End date</label>
                 <div class="d-flex">
-                  <input v-model="form_data.start_date"  type="date" class="form-control mr-2" id="start_date" >
-                  <input v-model="form_data.end_date"  type="date" class="form-control" id="end_date" >
+                  <input v-model="form_data.start_date"  type="month" class="form-control mr-2" id="start_date" >
+                  <input v-model="form_data.end_date"  type="month" class="form-control" id="end_date" >
                 </div>
               </div>
             </div> 
